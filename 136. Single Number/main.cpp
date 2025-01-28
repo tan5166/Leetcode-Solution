@@ -7,7 +7,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
-#include <bitset>
 using namespace std;
 
 struct ListNode {
@@ -30,7 +29,13 @@ struct TreeNode
 
 class Solution {
 public:
-    
+    int singleNumber(vector<int>& nums) {
+        int result = 0;
+        for(int i = 0; i< nums.size(); i++){
+            result ^= nums[i];
+        }
+        return result;
+    }
 };
 
 int main(){

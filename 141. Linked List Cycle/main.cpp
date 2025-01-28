@@ -7,7 +7,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
-#include <bitset>
 using namespace std;
 
 struct ListNode {
@@ -30,7 +29,19 @@ struct TreeNode
 
 class Solution {
 public:
-    
+    bool hasCycle(ListNode *head) {
+        if(!head) return false;
+        ListNode *slow = head;
+        ListNode *fast = head->next;
+        while(slow->next && fast->next->next){
+            if(slow == fast){
+                return true;
+            }
+            slow = slow ->next;
+            fast = fast->next->next;
+        }
+        return false;
+    }
 };
 
 int main(){

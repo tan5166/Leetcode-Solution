@@ -30,7 +30,22 @@ struct TreeNode
 
 class Solution {
 public:
-    
+    int maxRotateFunction(vector<int>& nums) {
+        int n = nums.size();
+        int sum = 0;
+        int dp = 0;
+
+        for(int i = 0; i < n; i++){
+            sum += nums[i];
+            dp += i * nums[i];
+        }
+        int result = max(INT_MIN, dp);
+        for(int i = 1; i < n ; i++){
+            dp = dp + sum - n * nums[n-i];
+            result = max(result, dp);
+        }
+        return result;
+    }
 };
 
 int main(){
