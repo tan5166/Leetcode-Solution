@@ -7,7 +7,16 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
+#include <bitset>
 using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 struct TreeNode
 {
@@ -21,9 +30,15 @@ struct TreeNode
 
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        return nums[nums.size()/2-1];
+    int lengthOfLongestSubsequence(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<vector<int>> dp(n, vector<int>(target + 1, INT_MIN));
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                dp[i][j]
+            }
+        }
+        return dp[target];
     }
 };
 

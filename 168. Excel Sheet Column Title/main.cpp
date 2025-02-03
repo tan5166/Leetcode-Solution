@@ -7,7 +7,16 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
+#include <bitset>
 using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 struct TreeNode
 {
@@ -21,9 +30,15 @@ struct TreeNode
 
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        return nums[nums.size()/2-1];
+    string convertToTitle(int columnNumber) {
+        string ans = "";
+        columnNumber --;
+        while(columnNumber >= 0){
+            int col = columnNumber % 26;
+            ans += ('A' + col);
+            columnNumber =- 26;
+        }
+        return ans;
     }
 };
 

@@ -7,7 +7,16 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
+#include <bitset>
 using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 struct TreeNode
 {
@@ -21,9 +30,14 @@ struct TreeNode
 
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        return nums[nums.size()/2-1];
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t result = 0;
+        for(int i = 0; i < 32; i++){
+            int bit = n & 1;
+            result = (result << 1) | bit;
+            n = n << 1;
+        }
+        return result;
     }
 };
 
